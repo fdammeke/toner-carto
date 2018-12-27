@@ -6,7 +6,8 @@ RUN \
   apt-get update && \
   apt-get upgrade -y && \
   apt-get install -y build-essential curl git software-properties-common unzip zip && \
-  apt-add-repository -y ppa:chris-lea/node.js && \
+  curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - && \
+  echo deb https://deb.nodesource.com/node_10.x cosmic main > /etc/apt/sources.list.d/nodesource.list && \
   apt-add-repository -y ppa:ubuntugis/ubuntugis-unstable && \
   apt-get update && \
   apt-get install -y nodejs mapnik-utils gdal-bin && \
